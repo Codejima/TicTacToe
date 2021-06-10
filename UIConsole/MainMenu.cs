@@ -7,7 +7,15 @@ namespace UIConsole
         public MainMenu()
         {
             // Labels & Buttons
-            mLabelList.Add(new Text(10, 1, "logo.txt"));
+            try
+            {
+                mLabelList.Add(new Text(10, 1, "logo.txt"));
+
+            }
+            catch (Exception)
+            {
+                mLabelList.Add(new Text(10, 1, " "));
+            }
             mLabelList.Add(new Label(24,10,"TicTacToe"));
             mButtonList.Add(new Button(22,13,"Start New Game", () => SceneManager.Instance.AddScene(new GameScreen())));
             mButtonList.Add(new Button(25, 15, "Credits", () => SceneManager.Instance.AddScene(new Credits())));
